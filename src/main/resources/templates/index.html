@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>猿圈</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="media-body">
                     <h5 class="media-heading">
-                        <a th:text="${question.title}"></a>
+                        <a th:href="@{'/question/'+ ${question.id}}" th:text="${question.title}"></a>
                     </h5>
                     <span th:text="${question.description}"></span>
                     <span class="text-desc">

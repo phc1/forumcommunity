@@ -111,7 +111,7 @@
                 <configuration>
                     <addResources>true</addResources>
                 </configuration>
-            </plugin>
+            </plugin>git
         </plugins>
     </build>
 

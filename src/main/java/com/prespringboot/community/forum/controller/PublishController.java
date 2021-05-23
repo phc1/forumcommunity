@@ -1,7 +1,6 @@
 package com.prespringboot.community.forum.controller;
 
 import com.prespringboot.community.forum.dto.QuestionDTO;
-import com.prespringboot.community.forum.mapper.QuestionMapper;
 import com.prespringboot.community.forum.model.Question;
 import com.prespringboot.community.forum.model.User;
 import com.prespringboot.community.forum.service.QuestionService;

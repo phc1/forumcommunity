@@ -133,8 +133,8 @@ public class QuestionService {
         }
     }
 
+    //浏览数
     public void incView(Integer id) {
-
         Question question = new Question();
         question.setId(id);
         question.setViewCount(1);

@@ -15,4 +15,3 @@
 [使用maven命令构建MBG]
 mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate<br/>
 [使用maven命令操作flyway控制数据库版本]
-mvn flyway:migrate

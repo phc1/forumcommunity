@@ -4,7 +4,6 @@ import com.prespringboot.community.forum.dto.PaginationDTO;
 import com.prespringboot.community.forum.dto.QuestionDTO;
 import com.prespringboot.community.forum.exception.CustomizeErrorCode;
 import com.prespringboot.community.forum.exception.CustomizeException;
-import com.prespringboot.community.forum.exception.ICustomizeErrorCode;
 import com.prespringboot.community.forum.mapper.QuestionExtMapper;
 import com.prespringboot.community.forum.mapper.QuestionMapper;
 import com.prespringboot.community.forum.mapper.UserMapper;
@@ -62,7 +61,7 @@ public class QuestionService {
         return paginationDTO;
     }
 
-    public PaginationDTO list(Integer userId, Integer page, Integer size) {
+    public PaginationDTO list(Long userId, Integer page, Integer size) {
         Integer totalPage;
 
         PaginationDTO paginationDTO = new PaginationDTO();
@@ -99,7 +98,7 @@ public class QuestionService {
         return paginationDTO;
     }
 
-    public QuestionDTO getId(Integer id) {
+    public QuestionDTO getId(Long id) {
         Question question = questionMapper.selectByPrimaryKey(id);
         if (question == null){
             throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
@@ -116,6 +115,9 @@ public class QuestionService {
             //提交新问题
             question.setGmtCreate(System.currentTimeMillis());
             question.setGmtModified(question.getGmtCreate());
+            question.setViewCount(0);
+            question.setLikeCount(0);
+            question.setCommentCount(0);
             questionMapper.insert(question);
         }else {
             //更新问题
@@ -134,7 +136,7 @@ public class QuestionService {
     }
 
     //浏览数
-    public void incView(Integer id) {
+    public void incView(Long id) {
         Question question = new Question();
         question.setId(id);
         question.setViewCount(1);
